@@ -7,7 +7,7 @@ module Searchable
     attr_values = params.values
     data = DBConnection.execute(<<-SQL, *attr_values)
     SELECT
-      *
+      #{self.table_name}.*
     FROM
       #{self.table_name}
     WHERE
